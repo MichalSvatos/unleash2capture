@@ -1,0 +1,12 @@
+{% from "../../utils/macros.twig" import component, icon_svg %}
+<header class="header js-check-open-menu header--menu-is-closed">
+	<div class="header__container container">
+		<a class="header__logo header__logo--mobile" href="#main">
+			{% include '../../../src/assets/logo--header-mobile.svg' %}
+		</a>
+		<a class="header__logo header__logo--desktop" href="#main">
+			{% include '../../../src/assets/logo--header.svg' %}
+		</a>
+		{{ component('nav') }}
+	</div>
+</header>

@@ -1,0 +1,46 @@
+{% from "../../utils/macros.twig" import icon_svg %}
+<div class="nav-wrapper">
+	<input type="checkbox" class="nav-toggle-checkbox hide-me" id="mobileMenu">
+	<label class="nav-toggle-label" for="mobileMenu">
+		<span class="hide-me">
+			Navigation
+		</span>
+		<span class="nav-toggle-label__close">
+			{{ icon_svg('ico-close') }}
+		</span>
+		<span class="nav-toggle-label__open">
+			{{ icon_svg('ico-menu') }}
+		</span>
+	</label>
+	<nav class="nav">
+		{% set navigation = {
+			"about" : {
+				"title" : "About",
+				"link" : "#main",
+				"icon" : "ico-about.svg"
+			},
+			"services" : {
+				"title" : "Services",
+				"link" : "#services",
+				"icon" : "ico-services.svg"
+			},
+			"contact" : {
+				"title" : "Contact",
+				"link" : "#contact",
+				"icon" : "ico-contact.svg"
+			}
+		} %}
+
+		<ul class="nav__list">
+			{% for menuItem in navigation %}
+				<li class="nav__item">
+					<a href="{{ menuItem.link }}" class="nav__link">
+						<img src="/src/assets/icons/{{ menuItem.icon }}" class="nav__icon" alt="" width="16" height="16">
+						{{ menuItem.title }}
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</nav>
+	<div class="nav__overlay"></div>
+</div>

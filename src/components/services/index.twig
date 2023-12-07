@@ -1,0 +1,38 @@
+ {% from "../../utils/macros.twig" import component, icon_svg %}
+{% set data = servicesData is defined ? servicesData : '' %}
+
+{% if data %}
+	<section class="section services-wrapper pt-500 pb-500">
+		{% if data.icon %}
+			{% set iconData = {
+				'icon' : data.icon,
+				'class' : 'floating-icon--services'
+			} %}
+
+			{{ component('floating-icon', {"iconData" : iconData}) }}
+		{% endif %}
+
+		<div class="container">
+
+			{% if data.title %}
+				<h2 class="section__title" id="services">{{ data.title }}</h2>
+			{% endif %}
+
+			{% if data.services %}
+				<div class="services">
+					{% for service in data.services %}
+						<div class="services__item">
+							<h3 class="services__title">{{ service.title }}</h3>
+							<div class="services__list">
+								{% for desc in service.desc %}
+									<p>{{ desc }}</p>
+								{% endfor %}
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+
+		</div>
+	</section>
+{% endif %}

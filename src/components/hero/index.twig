@@ -1,0 +1,29 @@
+{% from "../../utils/macros.twig" import component, icon_svg %}
+{% set hero = heroData is defined ? heroData : '' %}
+
+{% if hero %}
+	<div class="hero pb-500">
+		{% if hero.videoName %}
+			{{ component('hero-video', {"videoData" : hero.videoName}) }}
+		{% endif %}
+
+		{% if hero.icon %}
+			{% set iconData = {
+				'icon' : hero.icon,
+				'class' : 'floating-icon--hero'
+			} %}
+
+			{{ component('floating-icon', {"iconData" : iconData}) }}
+		{% endif %}
+
+		<div class="container hero__container">
+			{{ hero.companyName ? '<h1 class="hide-me">'~ hero.companyName ~'</h1>' : '' }}
+
+			{% if hero.text %}
+				<p class="hero__text h1">{{ hero.text }}</p>
+			{% endif %}
+		</div>
+
+		<button class="hero__controls" data-status="playing"></button>
+	</div>
+{% endif %}

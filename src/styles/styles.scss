@@ -1,0 +1,197 @@
+/*
+
+--- Global ---
+
+*/
+
+//@import "/src/styles/variables";
+//@import "/src/styles/mixins";
+@import "/src/styles/normalize";
+@import "/src/styles/utils";
+
+// Thanks to google-webfonts-helper (https://gwfh.mranftl.com)
+/* montserrat-300 - latin_latin-ext */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 300;
+	src: url('/src/assets/fonts/montserrat-v26-latin_latin-ext-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* montserrat-500 - latin_latin-ext */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 500;
+	src: url('/src/assets/fonts/montserrat-v26-latin_latin-ext-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* montserrat-700 - latin_latin-ext */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 700;
+	src: url('/src/assets/fonts/montserrat-v26-latin_latin-ext-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+// TODO: --var as mutliplyier for font size?
+html {
+	font-size: 1rem;
+	-webkit-text-size-adjust: 100%; // iOS landscape fix
+	scroll-behavior: smooth;
+	scroll-padding-top: ($gap * 6);
+	color-scheme: light;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	line-height: 1.65;
+	font-family: $font-family;
+	font-weight: $font-medium;
+
+	@media (min-width: $bp-lg) {
+		font-size: 1.125rem; // 18
+	}
+
+	@media (min-width: $bp-xxl) {
+		font-size: 1.375rem; // 22
+	}
+
+	@media (min-width: $bp-xxxl) {
+		font-size: 1.625rem; // 26
+	}
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit;
+	font-size: 100%;
+	margin: 0;
+}
+
+button,
+select {
+	text-transform: none;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+	-webkit-appearance: button;
+}
+
+::selection {
+	background-color: $color-primary;
+	color: $color-white;
+}
+
+main {
+	//
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5 {
+	margin-top: ($gap * 2);
+	margin-bottom: 0;
+	word-break: break-word;
+}
+
+h1,
+.h1 {
+	//font-size: font-size(xl5);
+	line-height: 1.15;
+	margin-top: 0;
+}
+
+h2,
+.h2 {
+	line-height: 1.15;
+	//font-size: font-size(xl4);
+}
+
+h3,
+.h3 {
+	//font-size: font-size(xl3);
+}
+
+h4,
+.h4 {
+	//font-size: font-size(xl2);
+	margin-top: ($gap);
+}
+
+h5,
+.h5 {
+	//font-size: font-size(xl);
+	margin-top: ($gap);
+}
+
+ul,
+ol {
+	margin: ($gap) 0 0 0;
+	padding: 0;
+}
+
+ul {
+	li {
+		list-style: none;
+
+		&::marker {
+			content: '';
+			display: none;
+		}
+	}
+}
+
+p {
+	margin-top: ($gap);
+	margin-bottom: 0;
+}
+
+.section {
+	background-color: $color-white;
+}
+
+.container {
+	margin-inline: auto;
+	padding-inline: $containerPaddingOffset;
+	width: 100%;
+
+	@media (min-width: $bp-md) {
+		max-width: calc(634px + ($containerPaddingOffset * 2));
+		padding-inline: $containerPaddingOffset;
+	}
+
+	@media (min-width: $bp-lg) {
+		max-width: calc(886px + ($containerPaddingOffset * 2));
+	}
+
+	@media (min-width: $bp-xxxl) {
+		max-width: calc(1366px + ($containerPaddingOffset * 2));
+	}
+}
+
+// --- components
+@import "/src/styles/section";
+@import "/src/components/nav/nav";
+@import "/src/components/header/header";
+@import "/src/components/hero/hero";
+@import "/src/components/hero-video/hero-video";
+@import "/src/components/contact/contact";
+@import "/src/components/services/services";
+@import "/src/components/floating-icon/floating-icon";
+@import "/src/components/footer/footer";

@@ -1,0 +1,60 @@
+/*
+
+--- Variables ---
+
+*/
+
+// -- global
+$color-black: #000000;
+$color-white: #ffffff;
+$color-primary: #0CB4BD;
+$color-secondary: #013953;
+$color-tertiary: #1E1E1E;
+
+$gap: 1rem;
+$containerPaddingOffset: ($gap * 3);
+
+// Custom properties
+:root {
+	--scrolledHeaderMargin: #{$gap * 2};
+}
+
+// Breakpoints (Bootstrap)
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+$bp-xxl: 1440px;
+$bp-xxxl: 1800px;
+
+$bp-sm-max: $bp-sm - 1;
+$bp-md-max: $bp-md - 1;
+$bp-lg-max: $bp-lg - 1;
+$bp-xl-max: $bp-xl - 1;
+$bp-xxl-max: $bp-xxl - 1;
+
+// -- for the navigation
+$desktopNavBreakpoint: $bp-md;
+$desktopNavBreakpointMax: $bp-md-max;
+
+// Typography
+$font-family: "Montserrat", "Open Sans", sans-serif;
+$font-light: 300;
+$font-medium: 500;
+$font-bold: 700;
+
+// Animations, transitions
+$transition-duration-50: 750ms;
+$transition-duration-100: 300ms;
+$transition-duration-200: 175ms;
+$transition-function: ease-in-out;
+$transition-50: $transition-duration-50 $transition-function;
+$transition-100: $transition-duration-100 $transition-function;
+$transition-200: $transition-duration-200 $transition-function;
+
+// -- thanks https://easings.net
+$easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
+$easeOutBack: cubic-bezier(0.34, 1.56, 0.64, 1);
+$easeInBack: cubic-bezier(0.36, 0, 0.66, -0.56);
+$easeOutQuart: cubic-bezier(0.25, 1, 0.5, 1);
+$easeInOutCubic: cubic-bezier(0.65, 0, 0.35, 1);

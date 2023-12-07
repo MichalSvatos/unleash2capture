@@ -1,0 +1,10 @@
+{% from "../../utils/macros.twig" import icon_svg %}
+{% set data = iconData is defined ? iconData : '' %}
+
+{% if data %}
+	{% set icon = data.icon is defined ? data.icon : 'about' %}
+
+	<div class="floating-icon {{ data.class ?? '' }}">
+		<img src="{{'/src/assets/icons/' ~ icon ~ '.svg'}}" alt="" loading="lazy">
+	</div>
+{% endif %}

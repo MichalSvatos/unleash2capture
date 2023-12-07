@@ -1,0 +1,113 @@
+/*
+
+--- Header ---
+
+*/
+
+.header {
+	position: fixed;
+	height: ($gap * 6);
+	inset: 0 0 auto 0;
+	background: transparent linear-gradient(0deg, rgba($color-white, 0%) 0%, rgba($color-white, 80%) 100%) no-repeat center 0;
+	transition: background-color $transition-100;
+	z-index: 1;
+
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		pointer-events: none;
+		inset: 0;
+		z-index: -1;
+		opacity: 0;
+	}
+
+	&:after {
+		background-color: $color-primary;
+		transition: opacity $transition-100;
+	}
+
+	&--menu-is-open {
+		&:after {
+			opacity: 1;
+		}
+
+		.header__logo {
+			animation: logoFade $transition-100 forwards;
+
+			svg {
+				path {
+					fill: $color-white;
+				}
+			}
+		}
+	}
+
+	&--menu-is-closed {
+		&:after {
+			opacity: 0;
+		}
+	}
+
+	&.js-is-scrolled {
+		background-color: $color-white;
+
+		&:before {
+			opacity: 1;
+			box-shadow: 0 ($gap * .5) ($gap * .5) rgba($color-black, 5%);
+		}
+	}
+}
+
+.header__container {
+	@media (min-width: $bp-md) {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+}
+
+.header__logo {
+	display: none;
+	position: relative;
+	z-index: 5;
+	margin-top: ($gap * 2);
+
+	&--mobile {
+		@media (max-width: $bp-md-max) {
+			display: inline-flex;
+		}
+	}
+
+	&--desktop {
+		@media (min-width: $bp-md) {
+			display: inline-flex;
+			transition: width $transition-100, translate $transition-100;
+			width: 143px; // default image size for the transition to work
+			translate: 0 0;
+		}
+	}
+
+	svg {
+		path {
+			transition: fill $transition-100;
+		}
+	}
+
+	// -- when header is scrolled
+	.js-is-scrolled & {
+		@media (min-width: $bp-md) {
+			translate: 0 ($gap * -1.5);
+			width: ($gap * 6);
+		}
+	}
+}
+
+@keyframes logoFade {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

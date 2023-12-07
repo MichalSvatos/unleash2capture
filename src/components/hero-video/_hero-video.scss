@@ -1,0 +1,23 @@
+/*
+
+--- Hero video ---
+
+*/
+
+.hero-video {
+	position: absolute;
+	//position: fixed;
+	inset: 0;
+	object-fit: cover;
+	overflow: hidden;
+	z-index: 0;
+	display: none;
+
+	&.js-video-is-loaded {
+		display: block;
+	}
+}
+
+.hero-video__item {
+	object-fit: cover;
+}

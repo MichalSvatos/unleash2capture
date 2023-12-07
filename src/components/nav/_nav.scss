@@ -1,0 +1,146 @@
+/*
+
+--- Navigation ---
+
+*/
+
+.nav-wrapper {
+	@media (max-width: $desktopNavBreakpointMax) {
+		position: fixed;
+		inset: 0 0 auto 0;
+	}
+}
+
+.nav-toggle-label {
+	position: fixed;
+	width: ($gap * 3);
+	height: ($gap * 3);
+	//background-color: hotpink;
+	inset: ($gap * 1.5) ($gap * 1.5) auto auto;
+	z-index: 10;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@media (min-width: $desktopNavBreakpoint) {
+		display: none;
+	}
+
+	svg {
+		display: block;
+	}
+}
+
+.nav-toggle-label__close {
+	display: none;
+}
+
+.nav-toggle-checkbox {
+	&:checked {
+		& ~ .nav-toggle-label {
+			.nav-toggle-label__close {
+				display: block;
+			}
+
+			.nav-toggle-label__open {
+				display: none;
+			}
+		}
+
+		& ~ .nav {
+			translate: 0 0;
+			box-shadow: 0 ($gap * .25) ($gap * 3.5) rgba($color-black, 45%);
+		}
+
+		& ~ .nav__overlay {
+			display: block;
+		}
+	}
+
+}
+
+nav {
+	@media (max-width: $desktopNavBreakpointMax) {
+		background-color: $color-primary;
+		padding: ($gap * 6) ($gap * 3) ($gap * 2) ($gap * 3);
+		box-shadow: none;
+		position: fixed;
+		inset: 0 0 auto 0;
+		translate: 0 -100%;
+		transition: translate 450ms ease-in-out, box-shadow 450ms ease-in-out;
+		transition-delay: 300ms;
+		z-index: 5;
+	}
+}
+
+.nav__list {
+	@media (min-width: $desktopNavBreakpoint) {
+		display: flex;
+		gap: ($gap * 1.5);
+		margin-top: ($gap * 2);
+		translate: 0 0;
+		transition: translate 200ms ease-in-out;
+	}
+
+	// -- when header is scrolled
+	.js-is-scrolled & {
+		@media (min-width: $desktopNavBreakpoint) {
+			translate: 0 ($gap * -1);
+		}
+	}
+}
+
+.nav__item {
+	color: $color-white;
+}
+
+.nav__link {
+	--_link-color: #{$color-white};
+
+	display: flex;
+	align-items: center;
+	font-size: 1.3rem;
+	text-decoration: none;
+	text-transform: lowercase;
+	padding-block: ($gap);
+	transition: color 300ms ease-in-out;
+	color: var(--_link-color);
+
+	@media (max-width: $desktopNavBreakpoint) {
+		display: block;
+
+		&:hover,
+		&.is-active {
+			--_link-color: #{$color-secondary};
+		}
+	}
+
+	@media (min-width: $desktopNavBreakpoint) {
+		font-size: 1.125rem;
+		--_link-color: #{$color-secondary};
+
+		&:hover,
+		&.is-active {
+			--_link-color: #{$color-primary};
+		}
+	}
+}
+
+.nav__icon {
+	margin-right: ($gap * .75);
+
+	@media (max-width: $desktopNavBreakpointMax) {
+		filter: brightness(100);
+	}
+}
+
+.nav__overlay {
+	@media (max-width: $desktopNavBreakpoint) {
+		display: none;
+		position: fixed;
+		inset: 0;
+		background-color: transparent;
+		z-index: 0;
+		top: ($gap * 6);
+	}
+}

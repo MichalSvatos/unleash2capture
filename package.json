@@ -1,0 +1,20 @@
+{
+  "name": "unleash2capture",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploySurge": "surge dist --domain unleash2capture.surge.sh"
+  },
+  "devDependencies": {
+    "@vituum/vite-plugin-twig": "^1",
+    "sass": "^1.69.5",
+    "vituum": "^1"
+  },
+  "dependencies": {
+    "firebase-tools": "^12.9.1"
+  }
+}

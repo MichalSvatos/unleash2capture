@@ -1,0 +1,9 @@
+{# Include component, pass variables #}
+{% macro component(componentName, componentParams = {}, templateName = "index") %}
+	{% include '../components/' ~ componentName ~ '/' ~ templateName ~ '.twig' with componentParams %}
+{% endmacro %}
+
+{# Embedding SVG icons #}
+{% macro icon_svg(name) %}
+	{% include '../assets/icons/' ~ name ~ '.svg' %}
+{% endmacro %}

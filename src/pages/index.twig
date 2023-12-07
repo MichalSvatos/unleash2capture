@@ -1,0 +1,59 @@
+{% extends 'layouts/main.twig' %}
+{% from "utils/macros.twig" import component, icon_svg %}
+{% block content %}
+	{% set heroData = {
+		"icon" : "ico-about",
+		"text" : "We facilitate connection between an opportunity and realization<br>
+<span class='text-highlight'>Unleashing the former</span> and <span class='text-highlight'>capturing the latter</span><br>
+Whether it’s an investor looking for new opportunities
+<br>Or a business ready to expand<br>Or a founder who is thinking what the next step should be",
+		"videoName" : "hero-video",
+		"companyName" : company
+	} %}
+
+	{% set servicesData = {
+		"title" : "Services",
+		"icon" : "ico-services",
+		"services" : [
+			{
+				"title" : "Strategic advisory",
+				"desc" : [
+					"We provide access to investors, brainstorming of new deal ideation and active market deals",
+					"We work with PE partners to locate & assess potential opportunities in markets"
+				]
+			},
+			{
+				"title" : "Raising Capital",
+				"desc" : ["We work with company founders and executives to raise capital from the right partners"]
+			},
+			{
+				"title" : "Talent Strategy",
+				"desc" : ["We work with company executives and founders on workforce strategy and planning, total rewards strategy &amp; board/management compensation"]
+			},
+			{
+				"title" : "Insurance Strategy",
+				"desc" : ["We provide insurance solutions to our counterparts including industry insurance, life & health insurance for individuals and corporations via affiliated insurance consultants"]
+			}
+		]
+	} %}
+
+	{% set contactData = {
+		"title" : "Contact me",
+		"icon" : "ico-contact",
+		"name" : companyRepresentative,
+		"position" : "Managing partner",
+		"emailBox" : {
+			"email" : companyEmail,
+			"icon" : "ico-email"
+		},
+		"phoneBox" : {
+			"phone" : companyPhone,
+			"icon" : "ico-phone"
+		}
+	} %}
+
+	{{ component('hero', {'heroData' : heroData}) }}
+	{{ component('services', {'servicesData' : servicesData}) }}
+	{{ component('contact', {'contactData' : contactData}) }}
+
+{% endblock %}

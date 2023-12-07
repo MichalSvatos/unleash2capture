@@ -1,0 +1,36 @@
+/*
+
+--- Footer ---
+
+*/
+
+.footer {
+	background-color: $color-tertiary;
+	color: $color-white;
+	font-weight: $font-light;
+	font-size: .75rem;
+
+	@media (min-width: $bp-md) {
+		font-size: 1rem;
+	}
+}
+
+.footer__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.footer__logo {
+	width: ($gap * 9);
+	height: auto;
+
+	@media (min-width: $bp-sm) {
+		width: ($gap * 15.35);
+	}
+
+	img {
+		display: block;
+		max-width: 100%;
+	}
+}

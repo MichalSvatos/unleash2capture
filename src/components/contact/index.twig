@@ -1,0 +1,46 @@
+{% from "../../utils/macros.twig" import component, icon_svg %}
+{% set data = contactData is defined ? contactData : '' %}
+
+{% if data %}
+	<section class="section contact-wrapper pt-500 pb-500">
+		{% if data.icon %}
+			{% set iconData = {
+				'icon' : data.icon,
+				'class' : 'floating-icon--contact'
+			} %}
+
+			{{ component('floating-icon', {"iconData" : iconData}) }}
+		{% endif %}
+
+		<div class="container">
+
+			{% if data.title %}
+				<h2 class="section__title" id="contact">{{ data.title }}</h2>
+			{% endif %}
+
+			<div class="contact">
+				<div class="contact__person">
+					{{ data.name ?? '' }}
+					<div class="contact__position">
+						{{ data.position ?? '' }}
+					</div>
+				</div>
+				<div class="contact__connections">
+					{% if data.emailBox %}
+						<a class="contact__email" href="mailto:{{ data.emailBox.email }}?subject=%5BDirect%20message%20from%20website%5D">
+							<img src="{{ '/src/assets/icons/' ~ data.emailBox.icon ~ '.svg' }}" loading="lazy" alt="">
+							{{ data.emailBox.email }}
+						</a>
+					{% endif %}
+					{% if data.phoneBox %}
+						<a href="tel:{{ data.phoneBox.phone|replace({' ': ''}) }}" class="contact__phone">
+							<img src="{{ '/src/assets/icons/' ~ data.phoneBox.icon ~ '.svg' }}" loading="lazy" alt="">
+							{{ data.phoneBox.phone }}
+						</a>
+					{% endif %}
+				</div>
+			</div>
+
+		</div>
+	</section>
+{% endif %}

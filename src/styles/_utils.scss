@@ -1,0 +1,33 @@
+/*
+
+--- Utils ---
+
+*/
+
+$offsets: (1, 1.5, 2, 2.5, 3, 5);
+@each $size in $offsets {
+	.mt-#{$size * 100} {
+		margin-top: ($gap * $size);
+	}
+
+	.mb-#{$size * 100} {
+		margin-bottom: ($gap * $size);
+	}
+
+	.pt-#{$size * 100} {
+		padding-top: ($gap * $size);
+	}
+
+	.pb-#{$size * 100} {
+		padding-bottom: ($gap * $size);
+	}
+}
+
+.text-highlight {
+	background-color: $color-primary;
+	border-inline: ($gap * .5) solid $color-primary;
+}
+
+.hide-me {
+	@include visually-hidden;
+}

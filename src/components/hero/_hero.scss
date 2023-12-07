@@ -1,0 +1,97 @@
+/*
+
+--- Hero ---
+
+*/
+
+.hero {
+	background: $color-white url("/bg-default-hero--mobile.jpg") no-repeat center 0;
+	background-size: cover;
+	min-height: ($gap * 33);
+	height: 90svh;
+	position: relative;
+	display: flex;
+	align-items: flex-end;
+
+	@media (min-width: $bp-md) {
+		min-height: ($gap * 40);
+		background: $color-white url("/bg-default-hero.jpg") no-repeat center 0;
+	}
+
+	@media (min-width: $bp-xxxl) {
+		min-height: ($gap * 45);
+	}
+
+	h1 {
+		display: none;
+	}
+}
+
+.hero__container {
+	position: relative;
+	z-index: 1;
+}
+
+.hero__text {
+	font-weight: $font-bold;
+	color: $color-white;
+	line-height: 1.5;
+	text-wrap: pretty;
+
+	@media (min-width: $bp-md) {
+		font-size: 1.25rem;
+	}
+
+	@media (min-width: $bp-lg) {
+		font-size: 1.5rem;
+		padding-bottom: ($gap * 3);
+	}
+
+	@media (min-width: $bp-xl) {
+		font-size: 1.875rem;
+	}
+
+	@media (min-width: $bp-xxxl) {
+		font-size: 2.1875rem;
+		padding-bottom: ($gap * 7);
+	}
+}
+
+.hero__controls {
+	display: none;
+	position: absolute;
+	right: ($containerPaddingOffset);
+	bottom: 0;
+	z-index: 1;
+	border: ($gap * .2) solid $color-primary;
+	border-bottom: 0;
+	border-radius: ($gap * .75) ($gap * .75) 0 0;
+	font-size: .5rem;
+	background-color: transparent;
+	color: $color-white;
+	cursor: pointer;
+	opacity: .5;
+	padding: ($gap * .25) ($gap * .5);
+	transition: opacity $transition-100;
+	text-transform: uppercase;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	.js-video-is-loaded ~ & {
+		display: block;
+	}
+
+	&[data-status="playing"] {
+		&:before {
+			content: 'pause';
+		}
+	}
+
+	&[data-status="paused"] {
+		&:before {
+			content: 'play';
+		}
+	}
+}

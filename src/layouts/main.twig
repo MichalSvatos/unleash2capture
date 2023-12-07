@@ -1,0 +1,38 @@
+{% from "../utils/macros.twig" import component %}
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>{% block title %}{{ company }}{% endblock %}</title>
+
+	<meta name="author" content="Michal Vajskebr">
+	<meta name="robots" content="index, follow">
+
+	{{ component('favicons') }}
+
+	<!--TODO: description -->
+	<meta name="description" content="We are unleash2capture. We facilitate connection between an opportunity and realization.">
+
+	<!--TODO: OG share image -->
+	<meta property="og:image" content="logo-share-1200x630.png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="src/assets/logo-share-1200x630.png">
+
+	<link rel="stylesheet" href="/src/styles/styles.scss">
+</head>
+<body class="no-js">
+<script>
+	document.body.className = document.body.className.replace(/no-js/, 'js')
+</script>
+<main id="main">
+	{% block content %}{% endblock %}
+</main>
+{{ component('header') }}
+{{ component('footer') }}
+</body>
+
+<script src="/src/scripts/main.js" type="module"></script>
+</html>

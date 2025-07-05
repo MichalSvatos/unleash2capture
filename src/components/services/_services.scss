@@ -5,7 +5,7 @@
 */
 
 $_titleWidth: ($gap * 9);
-$_titleWidthXl: ($gap * 14);
+$_titleWidthXl: ($gap * 13);
 
 .services-wrapper {
 	position: relative;
@@ -49,10 +49,10 @@ $_titleWidthXl: ($gap * 14);
 	@media (min-width: $bp-xxl) {
 		font-size: 1.375rem; // 22
 		line-height: 1.35;
+		width: $_titleWidthXl;
 	}
 
 	@media (min-width: $bp-xxxl) {
-		width: $_titleWidthXl;
 		font-size: 1.625rem; // 26
 
 	}

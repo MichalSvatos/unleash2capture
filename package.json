@@ -15,6 +15,6 @@
     "vituum": "^1"
   },
   "dependencies": {
-    "firebase-tools": "^12.9.1"
+    "firebase-tools": "^14.9.0"
   }
 }
